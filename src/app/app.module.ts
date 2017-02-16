@@ -11,6 +11,8 @@ import { ListTeamsComponent } from './list-teams/list-teams.component';
 import { NavigationHeaderComponent } from './navigation-header/navigation-header.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
+import { FmRoutingModule }   from 'app/fm-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    FmRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

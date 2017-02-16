@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationHeaderComponent } from "./navigation-header/navigation-header.component";
 
 @Component({
   selector: 'app-root',
