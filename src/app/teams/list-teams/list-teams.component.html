@@ -2,4 +2,17 @@
   list-teams works!
 </p>
 
-{{getTeams() | json}}
+<ul>
+  <li>
+    Name: <input type="text" [(ngModel)]="newTeam.name"/> 
+    Country: <input type="text" [(ngModel)]="newTeam.country"/> 
+    Founded: <input type="date" [(ngModel)]="newTeam.founded"/> 
+    <button (click)="addTeam()">Add</button>
+  </li>
+  <li *ngFor="let team of teams; let i = index;">
+    #{{i}} {{team.name}} / {{team.country}} <button (click)="deleteTeam(i)">Delete</button>
+  </li>
+</ul>
+
+{{ teams | json }}
+

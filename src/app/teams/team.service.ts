@@ -9,6 +9,14 @@ export class TeamService {
 		return teamsRepo;
 	}
 
+    addTeam(newTeam : Team) {
+        teamsRepo.push({name: newTeam.name, country: newTeam.country, founded: newTeam.founded});
+    }
+
+    deleteTeam(key) {
+        teamsRepo.splice(key, 1);
+    }
+
 }
 
 
@@ -19,10 +27,4 @@ export class TeamService {
 let team1 : Team = {name: "Real Madrid", country: "Spain", founded: new Date()};
 let team2 : Team = {name: "Barcelona", country: "Spain", founded: new Date()};
 let team3 : Team = {name: "Manchester United", country: "England", founded: new Date()};
-export let teamsRepo = {
-    "teams" : {
-        1 : team1,
-        2 : team2,
-        3 : team3
-    }
-}
+export let teamsRepo = [team1, team2, team3];
