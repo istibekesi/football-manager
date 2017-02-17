@@ -9,7 +9,7 @@ import { Team } from '../team';
 })
 export class ListTeamsComponent implements OnInit {
   
-  private newTeam : Team = {name: "new", country: "new", founded: new Date()};
+  private newTeam : Team = {id : null, name: "new", country: "new", founded: new Date()};
   private teams : Array<Team>; 
 
   constructor(private _dataService: DataService) { }

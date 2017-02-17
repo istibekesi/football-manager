@@ -11,7 +11,7 @@
     <button (click)="addPlayer()">Add</button>
   </li>
   <li *ngFor="let player of players; let i = index;">
-    #{{i}} {{player.firstName}} {{player.lastName}} / {{player.position}} <button (click)="deletePlayer(i)">Delete</button>
+    #{{player.id}} {{player.firstName}} {{player.lastName}} / {{player.position}} <button (click)="deletePlayer(i)">Delete</button>
   </li>
 </ul>
 
