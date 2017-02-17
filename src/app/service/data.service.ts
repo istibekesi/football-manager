@@ -9,12 +9,10 @@ export class DataService {
 	getTeams() : Array<Team> {
 		return teamsRepo;
 	}
-
     addTeam(newTeam : Team) {
         // Push a new instance of the newTeam object 
         teamsRepo.push({name: newTeam.name, country: newTeam.country, founded: newTeam.founded});
     }
-
     deleteTeam(index) {
         teamsRepo.splice(index, 1);
     }
@@ -23,6 +21,14 @@ export class DataService {
     getPlayers() {
 		return playersRepo;
 	}
+    addPlayer(newPlayer : Player) {
+        // Push a new instance of the newTeam object 
+        playersRepo.push(Object.assign({}, newPlayer)); // equivalent to old angular.copy() 
+    }
+    deletePlayer(index) {
+        playersRepo.splice(index, 1);
+    }
+
 
 }
 
