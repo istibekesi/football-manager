@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayerService } from '../player.service';
+import { DataService } from '../../service/data.service';
 
 @Component({
   selector: 'app-list-players',
@@ -8,10 +8,10 @@ import { PlayerService } from '../player.service';
 })
 export class ListPlayersComponent implements OnInit {
 
-  constructor(private _playerService: PlayerService) { }
+  constructor(private _dataService: DataService) { }
 
   getPlayers() {
-    return this._playerService.getPlayers();
+    return this._dataService.getPlayers();
   }
 
   ngOnInit() {

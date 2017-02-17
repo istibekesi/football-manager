@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TeamService } from '../team.service';
+import { DataService } from '../../service/data.service';
 import { Team } from '../team';
 
 @Component({
@@ -8,26 +8,22 @@ import { Team } from '../team';
   styleUrls: ['./list-teams.component.css']
 })
 export class ListTeamsComponent implements OnInit {
+  
+  private newTeam : Team = {name: "new", country: "new", founded: new Date()};
+  private teams : Array<Team>; 
 
-  constructor(private _teamService: TeamService) { }
-
-  newTeam : Team = {name: "new", country: "new", founded: new Date()};
-  teams; 
-
+  constructor(private _dataService: DataService) { }
 
   addTeam() {
-    this._teamService.addTeam(this.newTeam);
-    this.teams = this._teamService.getTeams();
+    this._dataService.addTeam(this.newTeam);
   }
 
-  deleteTeam(idToDelete) {
-    this._teamService.deleteTeam(idToDelete);
-    this.teams = this._teamService.getTeams();
+  deleteTeam(indexToDelete) {
+    this._dataService.deleteTeam(indexToDelete);
   }
 
   ngOnInit() {
-    this.teams = this._teamService.getTeams();
-    let team1 : Team = {name: "Real Madrid", country: "Spain", founded: new Date()};
+    this.teams = this._dataService.getTeams();
   }
 
 }
