@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { Team } from '../team';
 
+
+
 @Component({
   selector: 'app-list-teams',
   templateUrl: './list-teams.component.html',
@@ -18,8 +20,8 @@ export class ListTeamsComponent implements OnInit {
     this._dataService.addTeam(this.newTeam);
   }
 
-  deleteTeam(indexToDelete) {
-    this._dataService.deleteTeam(indexToDelete);
+  deleteTeam(teamId) {
+    this._dataService.deleteTeamById(teamId);
   }
 
   ngOnInit() {

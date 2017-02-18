@@ -10,7 +10,7 @@
     <button (click)="addTeam()">Add</button>
   </li>
   <li *ngFor="let team of teams; let i = index;">
-    #{{team.id}} {{team.name}} / {{team.country}} <button (click)="deleteTeam(i)">Delete</button>
+    #{{team.id}} {{team.name}} / {{team.country}} <button (click)="deleteTeam(team.id)">Delete</button>
   </li>
 </ul>
 

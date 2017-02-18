@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Team} from '../teams/team';
 import {Player, PlayerPosition} from '../players/player';
 
+import * as _ from 'lodash';
+
 
 @Injectable()
 export class DataService {
@@ -20,8 +22,18 @@ export class DataService {
         // Push a new instance of the newTeam object 
         this.teamsRepo.push({id: this.generateUniqueId(), name: newTeam.name, country: newTeam.country, founded: newTeam.founded});
     }
-    deleteTeam(index) {
+    deleteTeamByIndex(index) {
         this.teamsRepo.splice(index, 1);
+    }
+    deleteTeamById(uniqueId) {
+        let teamToDelete = _.remove(this.teamsRepo, function(t) {
+            return t.id == uniqueId;
+        });
+        if (teamToDelete && teamToDelete.length == 1 ) {
+            console.debug("Succesfully removed: " + teamToDelete[0].id + " " + teamToDelete[0].name);
+        } else {
+            console.error("Unable to remove team: " + uniqueId);
+        }
     }
 
 
@@ -34,8 +46,18 @@ export class DataService {
         newPlayerCopy.id = this.generateUniqueId();
         this.playersRepo.push(newPlayerCopy); 
     }
-    deletePlayer(index) {
+    deletePlayerByIndex(index) {
         this.playersRepo.splice(index, 1);
+    }
+    deletePlayerById(uniqueId) {
+        let playerToDelete = _.remove(this.playersRepo, function(p) {
+            return p.id == uniqueId;
+        });
+        if (playerToDelete && playerToDelete.length == 1) {
+            console.debug("Succesfully removed: " + playerToDelete[0].id + " " + playerToDelete[0].firstName + " " + playerToDelete[0].lastName);
+        } else {
+            console.error("Unable to remove player: " + uniqueId);
+        }
     }
 
 

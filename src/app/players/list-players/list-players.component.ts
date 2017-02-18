@@ -24,8 +24,8 @@ export class ListPlayersComponent implements OnInit {
   addPlayer() {
     this._dataService.addPlayer(this.newPlayer);
   }
-  deletePlayer(indexToDelete) {
-    this._dataService.deletePlayer(indexToDelete);
+  deletePlayer(playerId) {
+    this._dataService.deletePlayerById(playerId);
   }
 
 
