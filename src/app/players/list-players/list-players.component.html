@@ -6,8 +6,8 @@
   <li>
     FirstName: <input type="text" [(ngModel)]="newPlayer.firstName"/> 
     LastName: <input type="text" [(ngModel)]="newPlayer.lastName"/> 
-    Birth: <input type="text" [(ngModel)]="newPlayer.birth"/> 
-    Founded: <input type="date" [(ngModel)]="newPlayer.position"/> 
+    Birth: <input type="date" [(ngModel)]="newPlayer.birth"/> 
+    Position: <input type="text" [(ngModel)]="newPlayer.position"/> 
     <button (click)="addPlayer()">Add</button>
   </li>
   <li *ngFor="let player of players; let i = index;">

@@ -12,6 +12,7 @@ import { NavigationHeaderComponent } from './navigation-header/navigation-header
 import { WelcomeComponent } from './welcome/welcome.component';
 
 import { FmRoutingModule }   from 'app/fm-routing.module';
+import { TeamDetailsComponent } from './teams/team-details/team-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FmRoutingModule }   from 'app/fm-routing.module';
     TeamComponent,
     ListTeamsComponent,
     NavigationHeaderComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    TeamDetailsComponent
   ],
   imports: [
     BrowserModule,
