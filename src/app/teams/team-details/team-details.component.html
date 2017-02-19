@@ -1,3 +1,15 @@
 <p>
   team-details works!
 </p>
+
+<br/><hr/><br/>
+
+
+    Name: <input type="text" [(ngModel)]="selectedTeam.name"/> <br/> 
+    Country: <input type="text" [(ngModel)]="selectedTeam.country"/> <br/>
+    Founded: <input type="date" [(ngModel)]="selectedTeam.founded"/> <br/>
+
+<br/><hr/><br/>
+
+Players:<br/>
+{{teamPlayers | json}}
