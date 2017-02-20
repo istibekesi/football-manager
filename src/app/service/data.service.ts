@@ -22,18 +22,26 @@ export class DataService {
 	getTeams() : Array<Team> {
 		return this.teamsRepo;
 	}
+
     getTeam(uniqueId) : Team {
         return _.find(this.teamsRepo, function(t) { return t.id == uniqueId; });
     }
+
     addTeam(newTeam : Team) {
-        // Push a new instance of the newTeam object 
-        this.teamsRepo.push({id: this.generateUniqueId(), name: newTeam.name, country: newTeam.country, founded: newTeam.founded});
+        // Push a new instance of the newTeam object
+        let newTeamCopy = Object.assign({}, newTeam); // same as old angular.copy() 
+        newTeamCopy.id = this.generateUniqueId(); 
+        this.teamsRepo.push(newTeamCopy);
+        console.log("New team created: " + newTeamCopy.id + " " + newTeamCopy.name);
     }
+
     deleteTeamById(uniqueId) {
         // 1. remove all contracts of the team
         let contractsToDelete = _.remove(this.contractsRepo, function(c) {
             return c.team.id == uniqueId;
         });
+        console.log("Deleted " + contractsToDelete.length + "contract(s) of team " + uniqueId);
+
         // 2. remove the actual team
         let teamToDelete = _.remove(this.teamsRepo, function(t) {
             return t.id == uniqueId;
@@ -51,20 +59,26 @@ export class DataService {
     getPlayers() {
 		return this.playersRepo;
 	}
+
     getPlayer(uniqueId) : Player {
         return _.find(this.playersRepo, function(p) { return p.id == uniqueId; });
     }
+
     addPlayer(newPlayer : Player) {
         // Push a new instance of the newTeam object 
-        let newPlayerCopy = Object.assign({}, newPlayer); // equivalent to old angular.copy() 
+        let newPlayerCopy = Object.assign({}, newPlayer);
         newPlayerCopy.id = this.generateUniqueId();
-        this.playersRepo.push(newPlayerCopy); 
+        this.playersRepo.push(newPlayerCopy);
+        console.log("New player created: " + newPlayerCopy.id + " " + newPlayerCopy.firstName + " " + newPlayerCopy.lastName); 
     }
+
     deletePlayerById(uniqueId) {
         // 1. remove all contracts of the player
         let contractsToDelete = _.remove(this.contractsRepo, function(c) {
             return c.player.id == uniqueId;
         });
+        console.log("Deleted " + contractsToDelete.length + "contract(s) of player " + uniqueId);
+
         // 2. remove the actual player
         let playerToDelete = _.remove(this.playersRepo, function(p) {
             return p.id == uniqueId;
@@ -83,18 +97,17 @@ export class DataService {
         return  _.filter(this.contractsRepo, function(c) {
             return c.team.id == teamId;
         });
-        
     }
+
     addContract(player: Player, team: Team, salary: number) {
-        console.log(this.contractsRepo);
         this.contractsRepo.push({
             id: this.generateUniqueId(),
             team : team,
             player : player,
             salary : salary
         });
-        console.log(this.contractsRepo);
     }
+
     deleteContract(contract : Contract) {
         _.remove(this.contractsRepo, function(c) {
             return c.id == contract.id;
@@ -111,7 +124,7 @@ export class DataService {
 
 
     /**
-     * Inital data repository
+     * In memory data repository + initial test data 
      */
     private teamsRepo : Array<Team> = [];
     private playersRepo : Array<Player> = [];
@@ -134,11 +147,7 @@ export class DataService {
         this.contractsRepo.push({id: this.generateUniqueId(), team : this.teamsRepo[3], player : this.playersRepo[2], salary : 65000 });
         this.contractsRepo.push({id: this.generateUniqueId(), team : this.teamsRepo[1], player : this.playersRepo[3], salary : 365000 });
         this.contractsRepo.push({id: this.generateUniqueId(), team : this.teamsRepo[2], player : this.playersRepo[4], salary : 350000 });
-
     }
 
-
 }
-
-
 

@@ -17,8 +17,8 @@ export class TeamDetailsComponent implements OnInit {
   private selectedTeam : Team;
 
   private teamContracts : Array<Contract>;
+  private allPlayers : Array<Player>;       // Multiple contracts between same team and player allowed?
 
-  private allPlayers : Array<Player>;
   private playerToHire : Player;
   private salaryToHire : number;
 

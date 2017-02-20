@@ -4,7 +4,6 @@
 
 <br/><hr/><br/>
 
-
     Name: <input type="text" [(ngModel)]="selectedTeam.name"/> <br/> 
     Country: <input type="text" [(ngModel)]="selectedTeam.country"/> <br/>
     Founded: <input type="date" [(ngModel)]="selectedTeam.founded"/> <br/>
@@ -13,25 +12,18 @@
 
 Players:<br/>
 <ul>
-<!--  <li *ngFor="let player of teamPlayers; let i = index;">
-    #{{player.id}} {{player.firstName}} {{player.lastName}} / {{player.position}} / {{player.salary}} <button (click)="deletePlayer(player.id)">Dismiss player</button>
-  </li>
--->
   <li *ngFor="let c of teamContracts; let i = index;">
     #{{c.id}} {{c.player.firstName}} {{c.player.lastName}} / {{c.salary}} <button (click)="firePlayer(c)">Dismiss player</button>
   </li>
 
 </ul>
 
-{{teamContracts | json}}
-
 Hire new player:<br/>
-  <select [(ngModel)]="playerToHire">
-    <option *ngFor="let player of allPlayers" [ngValue]="player">{{player.firstName}} {{player.lastName}}</option>
-  </select>
-  Salary: <input type="number" [(ngModel)]="salaryToHire"/> 
-  <button (click)="hirePlayer()">Hire</button>
+<select [(ngModel)]="playerToHire">
+  <option *ngFor="let player of allPlayers" [ngValue]="player">{{player.firstName}} {{player.lastName}}</option>
+</select>
+Salary: <input type="number" [(ngModel)]="salaryToHire"/> 
+<button (click)="hirePlayer()">Hire</button>
 
-{{playerToHire}}
 
 
