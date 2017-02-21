@@ -1,19 +1,54 @@
-<p>
-  list-teams works!
-</p>
+<md-card>
+  <md-card-title>
+    New Team
+  </md-card-title>
+  <md-card-content>
+    <section class="example-section">
+      <md-input-container class="full-width">
+        <input type="text" mdInput placeholder="Name" value="Name" [(ngModel)]="newTeam.name">
+      </md-input-container>
+    </section>
+    <section>
+      <md-input-container class="full-width">
+        <input type="text" mdInput placeholder="Country" value="Country" [(ngModel)]="newTeam.country">
+      </md-input-container>
+    </section>
+    <section>
+      <md-input-container class="full-width">
+        <input type="date" mdInput placeholder="Date" value="Date" [(ngModel)]="newTeam.founded">
+      </md-input-container>
+    </section>
+  </md-card-content>
+  <md-card-actions>
+    <span flex></span>
+      <button md-raised-button color='accent' (click)="addTeam()">Add</button> 
+  </md-card-actions>
+</md-card>
 
-<ul>
-  <li>
-    Name: <input type="text" [(ngModel)]="newTeam.name"/> 
-    Country: <input type="text" [(ngModel)]="newTeam.country"/> 
-    Founded: <input type="date" [(ngModel)]="newTeam.founded"/> 
-    <button (click)="addTeam()">Add</button>
-  </li>
-  <li *ngFor="let team of teams; let i = index;">
-    #{{team.id}} {{team.name}} / {{team.country}}
-    <button (click)="selectTeam(team.id)">Details</button> 
-    <button (click)="deleteTeam(team.id)">Delete</button>
-  </li>
-</ul>
+
+<md-card *ngFor="let team of teams; let i = index;" class="team-card">
+  <md-card-title>{{team.name}}</md-card-title>
+  <span flex></span>
+  <md-card-content>
+    <p>
+      Country: {{team.country}}
+    </p>
+    <p>
+      Founded: {{team.founded | date}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-raised-button color='primary' (click)="selectTeam(team.id)">Details</button> 
+    <button md-raised-button color='warn' (click)="deleteTeam(team.id)">Delete</button>
+  </md-card-actions>
+</md-card>
+  
+
+
+
+
+
+
+ 
 
 

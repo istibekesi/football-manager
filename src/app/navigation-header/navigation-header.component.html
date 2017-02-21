@@ -1,8 +1,14 @@
-<p>
-  
-  navigation-header works!
-  <a routerLink="/welcome" routerLinkActive="active">Welcome</a>
-  <a routerLink="/teams" routerLinkActive="active">Teams</a>
-  <a routerLink="/players" routerLinkActive="active">Players</a>
+<md-toolbar color="primary">
+  <a md-button routerLink="/welcome" aria-label="Football Manager">
+    <img class="docs-angular-logo"
+        src="../../../assets/img/angular-white-transparent.svg"
+        alt="Angular">
+    <span>FOOTBALL MANAGER</span>
+  </a>
+  <span class="example-spacer"></span>
+  <a md-button routerLink="/teams"><md-icon class="example-icon">group</md-icon>TEAMS</a>
+  <a md-button routerLink="/players"><md-icon class="example-icon">person</md-icon>PLAYERS</a>
+</md-toolbar>
 
-</p>
+
+

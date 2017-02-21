@@ -1,0 +1,19 @@
+.welcome-header {
+  text-align: center;
+  padding-top: 90px;
+  font-size: 24px;
+}
+
+.welcome-content {
+  font-size: 18px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.welcome-buttons {
+  padding-top: 20px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+
