@@ -1,0 +1,22 @@
+.full-width {
+  width: 100%;
+}
+
+md-card {
+    margin: 20px;
+    vertical-align: top;
+}
+.team-card {
+    display: inline-block;
+    width: 260px;
+}
+
+md-card-title {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+md-card-content {
+    font-size: 14px;
+    color: rgba(0,0,0,.54);
+}

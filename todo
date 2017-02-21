@@ -1,3 +1,5 @@
-- styles and components (bootstap v material?)
+Todo:
 - proper forms with validations... etc.
-- tests
+- tests !
+- player position, proper select
+- date picker? material2 does not provide any date picker (yet?)

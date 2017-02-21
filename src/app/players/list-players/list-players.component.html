@@ -1,17 +1,61 @@
-<p>
-  list-players works!
-</p>
 
-<ul>
-  <li>
-    FirstName: <input type="text" [(ngModel)]="newPlayer.firstName"/> 
-    LastName: <input type="text" [(ngModel)]="newPlayer.lastName"/> 
-    Birth: <input type="date" [(ngModel)]="newPlayer.birth"/> 
-    Position: <input type="text" [(ngModel)]="newPlayer.position"/> 
-    <button (click)="addPlayer()">Add</button>
-  </li>
-  <li *ngFor="let player of players; let i = index;">
-    #{{player.id}} {{player.firstName}} {{player.lastName}} / {{player.position}} <button (click)="deletePlayer(player.id)">Delete</button>
-  </li>
-</ul>
+<md-card>
+  <md-card-title>
+    New Player
+  </md-card-title>
+  <md-card-content>
+    <section class="example-section">
+      <md-input-container class="full-width">
+        <input type="text" mdInput placeholder="First Name" value="FirstName" [(ngModel)]="newPlayer.firstName">
+      </md-input-container>
+    </section>
+    <section>
+      <md-input-container class="full-width">
+        <input type="text" mdInput placeholder="Last Name" value="LastName" [(ngModel)]="newPlayer.lastName">
+      </md-input-container>
+    </section>
+    <section>
+      <md-input-container class="full-width">
+        <input type="date" mdInput placeholder="Birth" value="Birth" [(ngModel)]="newPlayer.birth">
+      </md-input-container>
+    </section>
+    <section>
+      <md-input-container class="full-width">
+        <input type="text" mdInput placeholder="Position" value="Position" [(ngModel)]="newPlayer.position">
+      </md-input-container>
+    </section>
+  </md-card-content>
+  <md-card-actions>
+    <span flex></span>
+      <button md-raised-button color='accent' (click)="addPlayer()">Add</button> 
+  </md-card-actions>
+</md-card>
+
+
+<md-card *ngFor="let player of players; let i = index;" class="team-card">
+  <md-card-title>{{player.firstName}} {{player.firstName}}</md-card-title>
+  <span flex></span>
+  <md-card-content>
+    <p>
+      Position: {{player.position}}
+    </p>
+    <p>
+      Birth: {{player.birth | date}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <!-- <button md-raised-button color='primary' (click)="selectTeam(team.id)">Details</button> --> 
+    <button md-raised-button color='warn' (click)="deletePlayer(player.id)">Delete</button>
+  </md-card-actions>
+</md-card>
+  
+
+
+
+
+
+
+ 
+
+
 
