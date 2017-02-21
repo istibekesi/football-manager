@@ -1,5 +1,7 @@
 Todo:
 - proper forms with validations... etc.
 - tests !
-- player position, proper select
+- player position, proper selection
 - date picker? material2 does not provide any date picker (yet?)
+- player editor
+- prebuilt material theme colors are so ugly, create a custom colored theme
