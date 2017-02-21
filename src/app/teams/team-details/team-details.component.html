@@ -1,29 +1,53 @@
-<p>
-  team-details works!
-</p>
+<md-card>
+  <md-card-title>
+    Edit Team
+  </md-card-title>
+  <md-card-content>
+    <section class="example-section">
+      <md-input-container class="full-width">
+        <input type="text" mdInput placeholder="Name" value="Name" [(ngModel)]="selectedTeamCopy.name">
+      </md-input-container>
+    </section>
+    <section>
+      <md-input-container class="full-width">
+        <input type="text" mdInput placeholder="Country" value="Country" [(ngModel)]="selectedTeamCopy.country">
+      </md-input-container>
+    </section>
+    <section>
+      <md-input-container class="full-width">
+        <input type="date" mdInput placeholder="Date" value="Date" [(ngModel)]="selectedTeamCopy.founded">
+      </md-input-container>
+    </section>
+  </md-card-content>
+  <md-card-actions>
+    <span flex></span>
+      <button md-raised-button color='accent' (click)="saveSelectedTeam()">Save</button> 
+  </md-card-actions>
+</md-card>
 
-<br/><hr/><br/>
-
-    Name: <input type="text" [(ngModel)]="selectedTeam.name"/> <br/> 
-    Country: <input type="text" [(ngModel)]="selectedTeam.country"/> <br/>
-    Founded: <input type="date" [(ngModel)]="selectedTeam.founded"/> <br/>
-
-<br/><hr/><br/>
-
-Players:<br/>
-<ul>
-  <li *ngFor="let c of teamContracts; let i = index;">
-    #{{c.id}} {{c.player.firstName}} {{c.player.lastName}} / {{c.salary}} <button (click)="firePlayer(c)">Dismiss player</button>
-  </li>
-
-</ul>
-
-Hire new player:<br/>
-<select [(ngModel)]="playerToHire">
-  <option *ngFor="let player of allPlayers" [ngValue]="player">{{player.firstName}} {{player.lastName}}</option>
-</select>
-Salary: <input type="number" [(ngModel)]="salaryToHire"/> 
-<button (click)="hirePlayer()">Hire</button>
+<md-card>
+  <md-list>
+    <h3 md-subheader>Players</h3>
+    <md-list-item *ngFor="let c of teamContracts; let i = index;">
+      <md-icon md-list-avatar>person</md-icon>
+      <h4 md-line>{{c.player.firstName}} {{c.player.lastName}}</h4>
+      <p md-line> {{c.salary}} €/week </p>
+      <button md-mini-fab (click)="firePlayer(c)" color="warn"><md-icon>clear</md-icon></button>
+    </md-list-item>
+    <md-divider></md-divider>
+    <h3 md-subheader>Hire new player</h3>
+    <md-list-item>
+      <md-icon md-list-avatar>note_add</md-icon>
+        <md-select md-line placeholder="Player To Hire" [(ngModel)]="playerToHire">
+          <md-option *ngFor="let player of allPlayers" [value]="player">{{player.firstName}} {{player.lastName}}</md-option>
+        </md-select>
+        <md-input-container md-line>
+          <input mdInput placeholder="Salary" type="number" [(ngModel)]="salaryToHire">
+        </md-input-container>
+        <button md-mini-fab (click)="hirePlayer()" color="primary"><md-icon>add</md-icon></button>
+    </md-list-item>
+  </md-list>
+</md-card>
 
 
 
