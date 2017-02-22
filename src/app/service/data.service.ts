@@ -130,16 +130,16 @@ export class DataService {
     private playersRepo : Array<Player> = [];
     private contractsRepo : Array<Contract> = [];
     initData() {
-        this.teamsRepo.push({id: this.generateUniqueId(), name: "Manchester United", country: "England", founded: new Date()});
-        this.teamsRepo.push({id: this.generateUniqueId(), name: "Real Madrid", country: "Spain", founded: new Date()});
-        this.teamsRepo.push({id: this.generateUniqueId(), name: "Barcelona", country: "Spain", founded: new Date()});
-        this.teamsRepo.push({id: this.generateUniqueId(), name: "Juventus", country: "Italy", founded: new Date()});
+        this.teamsRepo.push({id: this.generateUniqueId(), name: "Manchester United", country: "England", founded: 1878});
+        this.teamsRepo.push({id: this.generateUniqueId(), name: "Real Madrid", country: "Spain", founded: 1902});
+        this.teamsRepo.push({id: this.generateUniqueId(), name: "Barcelona", country: "Spain", founded: 1899});
+        this.teamsRepo.push({id: this.generateUniqueId(), name: "Juventus", country: "Italy", founded: 1897});
 
-        this.playersRepo.push({id: this.generateUniqueId(), firstName: "Wayne", lastName: "Rooney", birth: new Date(), position: PlayerPosition.striker});
-        this.playersRepo.push({id: this.generateUniqueId(), firstName: "Zlatan", lastName: "Ibrahimovic", birth: new Date(), position: PlayerPosition.striker});
-        this.playersRepo.push({id: this.generateUniqueId(), firstName: "Paul", lastName: "Pogba", birth: new Date(), position: PlayerPosition.midfielder});
-        this.playersRepo.push({id: this.generateUniqueId(), firstName: "Christiano", lastName: "Ronaldo", birth: new Date(), position: PlayerPosition.striker});
-        this.playersRepo.push({id: this.generateUniqueId(), firstName: "Lionel", lastName: "Messi", birth: new Date(), position: PlayerPosition.striker});
+        this.playersRepo.push({id: this.generateUniqueId(), firstName: "Wayne", lastName: "Rooney", birth: 1985, position: PlayerPosition.striker});
+        this.playersRepo.push({id: this.generateUniqueId(), firstName: "Zlatan", lastName: "Ibrahimovic", birth: 1981, position: PlayerPosition.striker});
+        this.playersRepo.push({id: this.generateUniqueId(), firstName: "Paul", lastName: "Pogba", birth: 1993, position: PlayerPosition.midfielder});
+        this.playersRepo.push({id: this.generateUniqueId(), firstName: "Christiano", lastName: "Ronaldo", birth: 1985, position: PlayerPosition.striker});
+        this.playersRepo.push({id: this.generateUniqueId(), firstName: "Lionel", lastName: "Messi", birth: 1987, position: PlayerPosition.striker});
 
         this.contractsRepo.push({id: this.generateUniqueId(), team : this.teamsRepo[0], player : this.playersRepo[0], salary : 260000 });
         this.contractsRepo.push({id: this.generateUniqueId(), team : this.teamsRepo[0], player : this.playersRepo[1], salary : 220000 });

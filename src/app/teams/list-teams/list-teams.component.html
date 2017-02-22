@@ -15,7 +15,7 @@
     </section>
     <section>
       <md-input-container class="full-width">
-        <input type="date" mdInput placeholder="Date" value="Date" [(ngModel)]="newTeam.founded">
+        <input type="number" mdInput placeholder="Date" value="Date" [(ngModel)]="newTeam.founded">
       </md-input-container>
     </section>
   </md-card-content>
@@ -34,7 +34,7 @@
       Country: {{team.country}}
     </p>
     <p>
-      Founded: {{team.founded | date}}
+      Founded: {{team.founded}}
     </p>
   </md-card-content>
   <md-card-actions>

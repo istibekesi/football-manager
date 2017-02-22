@@ -9,7 +9,7 @@ import { Player, PlayerPosition } from '../player';
 })
 export class ListPlayersComponent implements OnInit {
 
-  private newPlayer : Player = {id : null, firstName: "", lastName: "", birth: new Date(), position : PlayerPosition.goalkeeper};
+  private newPlayer : Player = {id : null, firstName: "", lastName: "", birth: null, position : PlayerPosition.goalkeeper};
   private players : Array<Player>; 
 
   constructor(private _dataService: DataService) { }
@@ -24,7 +24,7 @@ export class ListPlayersComponent implements OnInit {
 
   addPlayer() {
     this._dataService.addPlayer(this.newPlayer);
-    this.newPlayer = {id : null, firstName: "", lastName: "", birth: new Date(), position : PlayerPosition.goalkeeper};
+    this.newPlayer = {id : null, firstName: "", lastName: "", birth: null, position : PlayerPosition.goalkeeper};
   }
 
   deletePlayer(playerId) {

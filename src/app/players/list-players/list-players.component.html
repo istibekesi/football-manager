@@ -16,7 +16,7 @@
     </section>
     <section>
       <md-input-container class="full-width">
-        <input type="date" mdInput placeholder="Birth" value="Birth" [(ngModel)]="newPlayer.birth">
+        <input type="number" mdInput placeholder="Birth" value="Birth" [(ngModel)]="newPlayer.birth">
       </md-input-container>
     </section>
     <section>
@@ -40,7 +40,7 @@
       Position: {{player.position}}
     </p>
     <p>
-      Birth: {{player.birth | date}}
+      Birth: {{player.birth}}
     </p>
   </md-card-content>
   <md-card-actions>
