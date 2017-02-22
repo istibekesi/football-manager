@@ -12,7 +12,12 @@ export class ListPlayersComponent implements OnInit {
   private newPlayer : Player = {id : null, firstName: "", lastName: "", birth: null, position : PlayerPosition.goalkeeper};
   private players : Array<Player>; 
 
-  constructor(private _dataService: DataService) { }
+  private positionsEnum = PlayerPosition;
+  private positionsKeys;
+
+  constructor(private _dataService: DataService) {
+    this.positionsKeys = Object.keys(this.positionsEnum).filter(Number);
+  }
 
   ngOnInit() {
     this.players = this._dataService.getPlayers();

@@ -7,10 +7,10 @@ export class Player {
 }
 
 export enum PlayerPosition {
-    goalkeeper,
-    defender, 
-    midfielder,
-    striker
+    goalkeeper = 1,
+    defender = 2, 
+    midfielder = 3,
+    striker = 4
 }
 
 

@@ -19,10 +19,15 @@
         <input type="number" mdInput placeholder="Birth" value="Birth" [(ngModel)]="newPlayer.birth">
       </md-input-container>
     </section>
+
     <section>
-      <md-input-container class="full-width">
-        <input type="text" mdInput placeholder="Position" value="Position" [(ngModel)]="newPlayer.position">
-      </md-input-container>
+
+      <div class="full-width" style="padding-top: 14px;">
+        <md-select md-line placeholder="Position" [(ngModel)]="newPlayer.position">
+          <md-option *ngFor="let key of positionsKeys" [value]="key">{{positionsEnum[key]}}</md-option>
+        </md-select>
+      </div>
+
     </section>
   </md-card-content>
   <md-card-actions>
@@ -37,7 +42,7 @@
   <span flex></span>
   <md-card-content>
     <p>
-      Position: {{player.position}}
+      Position: {{positionsEnum[player.position]}}
     </p>
     <p>
       Birth: {{player.birth}}
