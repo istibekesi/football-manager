@@ -7,4 +7,5 @@ Todo:
 - prebuilt material theme colors are so ugly, create a custom colored theme
 - loading indicator
 - svg icon does not work in github pages
+- add snackbar
 - delete button : rounded x would be better
