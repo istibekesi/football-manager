@@ -5,3 +5,6 @@ Todo:
 - date picker? material2 does not provide any date picker (yet?)
 - player editor
 - prebuilt material theme colors are so ugly, create a custom colored theme
+- loading indicator
+- svg icon does not work in github pages
+- delete button : rounded x would be better
