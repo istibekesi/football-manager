@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { Player, PlayerPosition } from '../player';
+import { Router } from '@angular/router';
 import {MdSnackBar} from '@angular/material';
 
 @Component({
@@ -16,7 +17,7 @@ export class ListPlayersComponent implements OnInit {
   private positionsEnum = PlayerPosition;
   private positionsKeys;
 
-  constructor(private _dataService: DataService, public snackBar: MdSnackBar) {
+  constructor(private _dataService: DataService, private router : Router, public snackBar: MdSnackBar) {
     this.positionsKeys = Object.keys(this.positionsEnum).filter(Number);
   }
 
@@ -38,6 +39,10 @@ export class ListPlayersComponent implements OnInit {
   deletePlayer(playerId) {
     this._dataService.deletePlayerById(playerId);
     this.openSnackBar("Player removed!") ;
+  }
+
+  selectPlayer(playerId) {
+    this.router.navigate(['/player', playerId]);
   }
 
   openSnackBar(message: string) {

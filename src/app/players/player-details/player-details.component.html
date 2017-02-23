@@ -1,0 +1,37 @@
+<md-card>
+  <form #editPlayerForm="ngForm">
+    <md-card-title>
+      Edit Player
+    </md-card-title>
+    <md-card-content>
+      <section class="example-section">
+        <md-input-container class="full-width">
+          <input type="text" mdInput placeholder="First Name" name="firstName" value="FirstName" [(ngModel)]="selectedPlayerCopy.firstName" required>
+        </md-input-container>
+      </section>
+      <section>
+        <md-input-container class="full-width">
+          <input type="text" mdInput placeholder="Last Name" name="lastName" value="LastName" [(ngModel)]="selectedPlayerCopy.lastName" required>
+        </md-input-container>
+      </section>
+      <section>
+        <md-input-container class="full-width">
+          <input type="number" mdInput placeholder="Birth" name="birth" value="Birth" [(ngModel)]="selectedPlayerCopy.birth">
+        </md-input-container>
+      </section>
+
+      <section>
+        <div class="full-width" style="padding-top: 14px;">
+          <md-select md-line placeholder="Position"  [(ngModel)]="selectedPlayerCopy.position" name="position" required>
+            <md-option *ngFor="let key of positionsKeys" [value]="key">{{positionsEnum[key]}}</md-option>
+          </md-select>
+        </div>
+      </section>
+
+    </md-card-content>
+    <md-card-actions>
+      <span flex></span>
+        <button md-raised-button color='accent' (click)="savePlayer()" [disabled]="!editPlayerForm.form.valid">Save</button> 
+    </md-card-actions>
+  </form>
+</md-card>

@@ -14,6 +14,7 @@ import { TeamDetailsComponent } from './teams/team-details/team-details.componen
 
 
 import { MaterialModule } from '@angular/material';
+import { PlayerDetailsComponent } from './players/player-details/player-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MaterialModule } from '@angular/material';
     ListTeamsComponent,
     NavigationHeaderComponent,
     WelcomeComponent,
-    TeamDetailsComponent
+    TeamDetailsComponent,
+    PlayerDetailsComponent
   ],
   imports: [
     BrowserModule,
