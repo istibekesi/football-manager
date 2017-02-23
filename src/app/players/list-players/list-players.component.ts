@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { Player, PlayerPosition } from '../player';
+import {MdSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-list-players',
@@ -15,7 +16,7 @@ export class ListPlayersComponent implements OnInit {
   private positionsEnum = PlayerPosition;
   private positionsKeys;
 
-  constructor(private _dataService: DataService) {
+  constructor(private _dataService: DataService, public snackBar: MdSnackBar) {
     this.positionsKeys = Object.keys(this.positionsEnum).filter(Number);
   }
 
@@ -28,12 +29,21 @@ export class ListPlayersComponent implements OnInit {
   }
 
   addPlayer() {
+    let newPlayerName = this.newPlayer.firstName + " " + this.newPlayer.lastName;
     this._dataService.addPlayer(this.newPlayer);
     this.newPlayer = {id : null, firstName: "", lastName: "", birth: null, position : PlayerPosition.goalkeeper};
+    this.openSnackBar(newPlayerName +" has been added!") ;
   }
 
   deletePlayer(playerId) {
     this._dataService.deletePlayerById(playerId);
+    this.openSnackBar("Player removed!") ;
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, "X", {
+      duration: 2000,
+    });
   }
 
 

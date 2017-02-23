@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { Router, ActivatedRoute } from "@angular/router";
+import {MdSnackBar} from '@angular/material';
 import { Team } from '../team';
 import { Contract } from '../contract';
 import { Player } from '../../players/player';
@@ -23,7 +24,7 @@ export class TeamDetailsComponent implements OnInit {
   private playerToHire : Player;
   private salaryToHire : number;
 
-  constructor(private _dataService: DataService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private _dataService: DataService, private route: ActivatedRoute, private router: Router, public snackBar: MdSnackBar) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -39,11 +40,14 @@ export class TeamDetailsComponent implements OnInit {
     this.selectedTeam.name = this.selectedTeamCopy.name;
     this.selectedTeam.country = this.selectedTeamCopy.country;
     this.selectedTeam.founded = this.selectedTeamCopy.founded;
+    this.openSnackBar("Team updated!") ;
   }
 
   firePlayer(c : Contract) {
+    let playerToFire = c.player.firstName + " " + c.player.lastName;
     this._dataService.deleteContract(c);
     this.teamContracts = this._dataService.getTeamContracts(this.id);
+    this.openSnackBar(playerToFire + " has been fired!") ;
   }
 
   hirePlayer() {
@@ -53,6 +57,13 @@ export class TeamDetailsComponent implements OnInit {
     }
     this._dataService.addContract(this.playerToHire, this.selectedTeam, this.salaryToHire);
     this.teamContracts = this._dataService.getTeamContracts(this.id);
+    this.openSnackBar(this.playerToHire.firstName + " " + this.playerToHire.lastName  + " has been signed!") ;
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, "X", {
+      duration: 2000,
+    });
   }
 
 }
