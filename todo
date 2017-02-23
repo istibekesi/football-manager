@@ -1,13 +1,3 @@
 Todo:
-- proper forms with validations... etc.
 - tests !
-- player editor
-- loading indicator
-- svg icon does not work in github pages
-- add snackbar
 
-Done:
-- delete button : rounded x would be better - NOT looking better, keep the original action buttons
-- prebuilt material theme colors are so ugly, create a custom colored theme
-- date picker? material2 does not provide any date picker (yet?)
-- player position, proper selection
