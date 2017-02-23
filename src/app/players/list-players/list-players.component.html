@@ -1,43 +1,44 @@
 
 <md-card>
-  <md-card-title>
-    New Player
-  </md-card-title>
-  <md-card-content>
-    <section class="example-section">
-      <md-input-container class="full-width">
-        <input type="text" mdInput placeholder="First Name" value="FirstName" [(ngModel)]="newPlayer.firstName">
-      </md-input-container>
-    </section>
-    <section>
-      <md-input-container class="full-width">
-        <input type="text" mdInput placeholder="Last Name" value="LastName" [(ngModel)]="newPlayer.lastName">
-      </md-input-container>
-    </section>
-    <section>
-      <md-input-container class="full-width">
-        <input type="number" mdInput placeholder="Birth" value="Birth" [(ngModel)]="newPlayer.birth">
-      </md-input-container>
-    </section>
+  <form #newPlayerForm="ngForm">
+    <md-card-title>
+      New Player
+    </md-card-title>
+    <md-card-content>
+      <section class="example-section">
+        <md-input-container class="full-width">
+          <input type="text" mdInput placeholder="First Name" name="firstName" value="FirstName" [(ngModel)]="newPlayer.firstName" required>
+        </md-input-container>
+      </section>
+      <section>
+        <md-input-container class="full-width">
+          <input type="text" mdInput placeholder="Last Name" name="lastName" value="LastName" [(ngModel)]="newPlayer.lastName" required>
+        </md-input-container>
+      </section>
+      <section>
+        <md-input-container class="full-width">
+          <input type="number" mdInput placeholder="Birth" name="birth" value="Birth" [(ngModel)]="newPlayer.birth">
+        </md-input-container>
+      </section>
 
-    <section>
+      <section>
+        <div class="full-width" style="padding-top: 14px;">
+          <md-select md-line placeholder="Position"  [(ngModel)]="newPlayer.position" name="position" required>
+            <md-option *ngFor="let key of positionsKeys" [value]="key">{{positionsEnum[key]}}</md-option>
+          </md-select>
+        </div>
+      </section>
 
-      <div class="full-width" style="padding-top: 14px;">
-        <md-select md-line placeholder="Position" [(ngModel)]="newPlayer.position">
-          <md-option *ngFor="let key of positionsKeys" [value]="key">{{positionsEnum[key]}}</md-option>
-        </md-select>
-      </div>
-
-    </section>
-  </md-card-content>
-  <md-card-actions>
-    <span flex></span>
-      <button md-raised-button color='accent' (click)="addPlayer()">Add</button> 
-  </md-card-actions>
+    </md-card-content>
+    <md-card-actions>
+      <span flex></span>
+        <button md-raised-button color='accent' (click)="addPlayer()" [disabled]="!newPlayerForm.form.valid">Add</button> 
+    </md-card-actions>
+  </form>
 </md-card>
 
 
-<md-card *ngFor="let player of players; let i = index;" class="team-card">
+<md-card *ngFor="let player of players.slice().reverse(); let i = index;" class="team-card">
   <md-card-title>{{player.firstName}} {{player.lastName}}</md-card-title>
   <span flex></span>
   <md-card-content>

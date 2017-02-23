@@ -1,28 +1,30 @@
 <md-card>
+  <form #editTeamForm="ngForm">
   <md-card-title>
     Edit Team
   </md-card-title>
   <md-card-content>
     <section class="example-section">
       <md-input-container class="full-width">
-        <input type="text" mdInput placeholder="Name" value="Name" [(ngModel)]="selectedTeamCopy.name">
+        <input type="text" mdInput placeholder="Name" name="name" value="Name" [(ngModel)]="selectedTeamCopy.name" required>
       </md-input-container>
     </section>
     <section>
       <md-input-container class="full-width">
-        <input type="text" mdInput placeholder="Country" value="Country" [(ngModel)]="selectedTeamCopy.country">
+        <input type="text" mdInput placeholder="Country" name="country" value="Country" [(ngModel)]="selectedTeamCopy.country">
       </md-input-container>
     </section>
     <section>
       <md-input-container class="full-width">
-        <input type="number" mdInput placeholder="Founded" value="Date" [(ngModel)]="selectedTeamCopy.founded">
+        <input type="number" mdInput placeholder="Founded" name="founded" value="Date" [(ngModel)]="selectedTeamCopy.founded">
       </md-input-container>
     </section>
   </md-card-content>
   <md-card-actions>
     <span flex></span>
-      <button md-raised-button color='accent' (click)="saveSelectedTeam()">Save</button> 
+      <button md-raised-button color='accent' (click)="saveSelectedTeam()" [disabled]="!editTeamForm.form.valid">Save</button> 
   </md-card-actions>
+  </form>
 </md-card>
 
 <md-card>

@@ -1,32 +1,34 @@
 <md-card>
-  <md-card-title>
-    New Team
-  </md-card-title>
-  <md-card-content>
-    <section class="example-section">
-      <md-input-container class="full-width">
-        <input type="text" mdInput placeholder="Name" value="Name" [(ngModel)]="newTeam.name">
-      </md-input-container>
-    </section>
-    <section>
-      <md-input-container class="full-width">
-        <input type="text" mdInput placeholder="Country" value="Country" [(ngModel)]="newTeam.country">
-      </md-input-container>
-    </section>
-    <section>
-      <md-input-container class="full-width">
-        <input type="number" mdInput placeholder="Date" value="Date" [(ngModel)]="newTeam.founded">
-      </md-input-container>
-    </section>
-  </md-card-content>
-  <md-card-actions>
-    <span flex></span>
-      <button md-raised-button color='accent' (click)="addTeam()">Add</button> 
-  </md-card-actions>
+  <form #newTeamForm="ngForm">
+    <md-card-title>
+      New Team
+    </md-card-title>
+    <md-card-content>
+      <section class="example-section">
+        <md-input-container class="full-width">
+          <input type="text" mdInput placeholder="Name" name="name" value="Name" [(ngModel)]="newTeam.name" required>
+        </md-input-container>
+      </section>
+      <section>
+        <md-input-container class="full-width">
+          <input type="text" mdInput placeholder="Country" name="country" value="Country" [(ngModel)]="newTeam.country">
+        </md-input-container>
+      </section>
+      <section>
+        <md-input-container class="full-width">
+          <input type="number" mdInput placeholder="Founded" name="founded" value="Founded" [(ngModel)]="newTeam.founded">
+        </md-input-container>
+      </section>
+    </md-card-content>
+    <md-card-actions>
+      <span flex></span>
+        <button md-raised-button color='accent' (click)="addTeam()" [disabled]="!newTeamForm.form.valid">Add</button>
+    </md-card-actions>
+  </form>
 </md-card>
 
 
-<md-card *ngFor="let team of teams; let i = index;" class="team-card">
+<md-card *ngFor="let team of teams.slice().reverse(); let i = index;" class="team-card">
   <md-card-title>{{team.name}}</md-card-title>
   <span flex></span>
   <md-card-content>
