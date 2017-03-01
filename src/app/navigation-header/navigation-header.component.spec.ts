@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { NavigationHeaderComponent } from './navigation-header.component';
+import { MaterialModule } from '@angular/material';
 
 describe('NavigationHeaderComponent', () => {
   let component: NavigationHeaderComponent;
@@ -11,7 +12,8 @@ describe('NavigationHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavigationHeaderComponent ]
+      declarations: [ NavigationHeaderComponent ],
+      imports: [ MaterialModule.forRoot() ]
     })
     .compileComponents();
   }));

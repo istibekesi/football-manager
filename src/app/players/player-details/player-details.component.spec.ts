@@ -4,14 +4,26 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { PlayerDetailsComponent } from './player-details.component';
+import { MaterialModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import { DataService } from '../../service/data.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PlayerDetailsComponent', () => {
   let component: PlayerDetailsComponent;
   let fixture: ComponentFixture<PlayerDetailsComponent>;
 
   beforeEach(async(() => {
+    let dataServiceStub = {
+      getPlayers: function () { return [];},
+      getTeams: function () { return [];},
+      getPlayer: function () { return {};},
+    };
+
     TestBed.configureTestingModule({
-      declarations: [ PlayerDetailsComponent ]
+      declarations: [ PlayerDetailsComponent ],
+      imports: [ FormsModule, MaterialModule.forRoot(), RouterTestingModule ],
+      providers: [ {provide: DataService, useValue: dataServiceStub } ]
     })
     .compileComponents();
   }));
